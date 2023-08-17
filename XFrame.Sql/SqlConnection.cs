@@ -120,7 +120,8 @@ namespace XFrame.Sql
                         connectionStringName,
                         cancellationToken).ConfigureAwait(false);
 
-                    using (var sqlConnection = await ConnectionFactory.OpenConnectionAsync(connectionString, cancellationToken).ConfigureAwait(false))
+                    using (var sqlConnection = await ConnectionFactory
+                    .OpenConnectionAsync(connectionString, cancellationToken).ConfigureAwait(false))
                     {
                         return await withConnection(sqlConnection, c).ConfigureAwait(false);
                     }
